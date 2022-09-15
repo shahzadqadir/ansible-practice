@@ -1,0 +1,22 @@
+---
+-
+  hosts: routers
+  gather_facts: false
+  connection: local
+
+  tasks:
+
+    - name: show run
+      ios_command:
+        commands:
+          - show run | include hostname
+        provider: "{{ cli }}"
+
+      register: output
+
+    - name: configure banner for R1
+      when: '"R1" in output.stdout[0]'
+      ios_config:
+        provider: "{{ cli }}"
+        lines:
+          - banner motd "R1 banner changed as condition met"

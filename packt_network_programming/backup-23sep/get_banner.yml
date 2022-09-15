@@ -1,0 +1,18 @@
+---
+ - hosts: routers
+   gather_facts: false
+
+   tasks:
+     - name: pull hostname from device iosv-1
+       ios_config:
+          backup: yes
+          lines:
+            - hostname {{inventory_hostname}}
+            - ip domain name testing123.com
+       register: backup_ios_location
+
+     - debug:
+         msg:
+           "{{backup_ios_location}}"
+
+  

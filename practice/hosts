@@ -1,0 +1,10 @@
+[pe-ios]
+r7 ansible_host=7.7.7.7
+
+[pe-xr]
+xr1 ansible_host=19.19.19.19
+
+[pe-routers:children]
+pe-ios
+pe-xr
+

@@ -1,0 +1,8 @@
+---
+string_var: "This is a string variable"
+list_var:
+  - "list item 1"
+  - 41
+  - "list item 3"
+dict_var:
+  {'name': Shahzad, 'age': 41, 'occupation': 'network engineer'}

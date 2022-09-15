@@ -1,0 +1,23 @@
+---
+- hosts: network
+  gather_facts: false
+  connection: local
+
+  vars:
+    cli:
+      username: nms
+      password: cisco
+  
+  tasks:
+
+    - name: get cdp information
+      ios_command:
+        provider: "{{cli}}"
+        commands:
+          - show cdp neighbor
+      
+      register: results
+
+    - name: print output to screen
+      debug:
+        var=results.stdout_lines

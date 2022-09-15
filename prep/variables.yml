@@ -1,0 +1,7 @@
+---
+# cli variable for credentials
+cli:
+  username: ans
+  password: cisco123
+
+hostname: from_file

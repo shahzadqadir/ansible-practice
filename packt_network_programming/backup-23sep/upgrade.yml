@@ -1,0 +1,17 @@
+---
+- hosts: routers
+  gather_facts: false
+
+  tasks:
+    - name: check if router need upgrade
+      ios_command:
+        commands:
+          - dir
+      register: dir_output
+    
+    - name: check if upgrade file is present
+      when: 
+        - '"upgrade" in "{{dir_output.stdout}}"'
+      ios_config:
+        lines: 
+          - banner motd "THIS ROUTER NEEDS AN URGENT UPGRADE!!!"

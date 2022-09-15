@@ -1,0 +1,9 @@
+---
+- hosts: routers
+  gather_facts: false
+
+  tasks:
+    - name: update motd banner
+      ios_config:
+        lines:
+          - banner motd "New banner configured by script"

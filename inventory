@@ -1,0 +1,19 @@
+[routers]
+r1 ansible_host=192.168.122.231 ansible_user=nms
+vios3 ansible_host=192.168.122.232 ansible_user=nms
+
+[access_sw]
+vios21 ansible_host=192.168.233 ansible_user=nms
+vios22 ansible_host=192.168.234 ansible_user=nms
+
+
+[dist_sw]
+vios23 ansbile_host=192.168.235 ansible_user=nms
+
+[switches:children]
+access_sw
+dist_sw
+
+[network:children]
+routers
+switches

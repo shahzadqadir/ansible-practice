@@ -1,0 +1,18 @@
+---
+-
+  hosts: routers
+  gather_facts: False
+  connection: local
+
+  tasks:
+    - name: change hostname of routers
+      debug:
+        msg: >
+          {% if ansible_host == "10.10.10.201" -%}
+            This message is for Router 1 only!
+          {% elif ansible_host == '10.10.10.202' -%}
+            This message is for Router 2 ...
+          {% else %}
+            This is an open message for everyone.
+          {% endif %}
+        

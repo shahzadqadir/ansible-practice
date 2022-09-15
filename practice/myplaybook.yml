@@ -1,0 +1,11 @@
+---
+- hosts: pe-ios
+  gather_facts: false
+
+  tasks:
+    - name: update banner
+      ios_config:
+        lines:
+          - banner motd "Banner done with script"
+        
+    

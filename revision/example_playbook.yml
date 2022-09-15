@@ -1,0 +1,13 @@
+---
+- hosts: r1
+  gather_facts: false
+
+  vars_prompt:
+    name: username
+    private: false
+
+  tasks:
+
+    - name: print username and password
+      debug:
+        msg: "{{ username }}"

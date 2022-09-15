@@ -1,0 +1,1 @@
+echo "This is only a test script written in Shell Programming language."
